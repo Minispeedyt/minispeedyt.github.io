@@ -6,6 +6,7 @@ WIP :)
 # Simple port scanner
 [Link to the github repo.](https://github.com/Minispeedyt/simplescanner/tree/main)
 
+1/31/2025
 I wanted to create a simple port scanner using python, for this I decided that I was going to use scapy. The first version/prototype works well but you have to modify the code if you want to change the ports or the IP to scan. Here's the first version of the scanner:
 ```
 from scapy.all import *
@@ -35,3 +36,4 @@ We create a for loop where we look at each sent and received packet (`for s,r in
 
 If you do the same with 0x14, you'll see that you'll get RST-ACK.
 For every sent packet we're going to use `s[TCP].dport` in a print statement so that we can tell the user the number of each open and closed port.
+That's it for today, tomorrow I'll make it so that it's easier to change the ports and IP to scan and I'll add other QoL changes.
