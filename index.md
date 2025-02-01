@@ -34,4 +34,4 @@ We create a for loop where we look at each sent and received packet (`for s,r in
 *    FIN = 0
 
 If you do the same with 0x14, you'll see that you'll get RST-ACK.
-For every response we're going to print the number of the port and whether it's closed or open, with `s[TCP].dport` in the print statement what we're doing is looking at the port used in the packet that we sent.
+For every sent packet we're going to use `s[TCP].dport` in a print statement so that we can tell the user the number of each open and closed port.
