@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-[![spanish image link](./images/es.png)](./es.html)
+[![spanish image link](./images/es small.png)](./es.html)
 
 [Click here to change to spanish!](./es.html)
 # Index
