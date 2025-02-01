@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+[![spanish image link](./images/es.png)](./es.md)
+
+[Click here to change to spanish!](./es.md)
 # Index
 WIP :)
 # Simple port scanner
