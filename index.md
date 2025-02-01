@@ -41,12 +41,12 @@ It listens for responses, classifying ports as:
 A packet is the smallest unit of data that travels across a network. It is a tiny fragment of a message, carrying information from one computer to another.
 Each packet consists of three parts:
 -    Header = It carries essential instructions:
-    -Source IP (Where it came from)
-    -Destination IP (Where it should go)
-    -Protocol Information (Is it TCP? UDP? ICMP?)
-    -Packet Number (How it fits into the full message)
--Payload = The actual data, whether it be a piece of an email, a chunk of a video, or part of a webpage.
--Trailer (optional) = Sometimes, a checksum or error-checking data is added to verify the packet wasn’t corrupted in transit.
+        -Source IP (Where it came from)
+        -Destination IP (Where it should go)
+        -Protocol Information (Is it TCP? UDP? ICMP?)
+        -Packet Number (How it fits into the full message)
+-    Payload = The actual data, whether it be a piece of an email, a chunk of a video, or part of a webpage.
+-    Trailer (optional) = Sometimes, a checksum or error-checking data is added to verify the packet wasn’t corrupted in transit.
 
 ### How is a connection established between computers?
 Usually a connection is established using what is known as a three way handshake, it looks like this:
