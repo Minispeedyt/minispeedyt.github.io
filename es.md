@@ -39,13 +39,14 @@ A continuación, escucha las respuestas y clasifica los puertos como:
 ### ¿Qué es un paquete?
 Un paquete es la unidad más pequeña de datos que viaja a través de una red. Es un fragmento minúsculo de un mensaje, que transporta información de un ordenador a otro.
 Cada paquete consta de tres partes
-1.    Encabezado - Lleva instrucciones esenciales:
-    * IP de origen (de dónde procede)
-    * IP de destino (a dónde debe ir)
-    * Información de Protocolo (¿Es TCP? ¿UDP? ¿ICMP?)
-    * Número de paquete (Cómo encaja en el mensaje completo)
-2.    Carga útil - Los datos reales, ya sea un fragmento de un correo electrónico, un trozo de un vídeo o parte de una página web.
-3.    Remolque (opcional) - A veces, se añade una suma de comprobación o datos de comprobación de errores para verificar que el paquete no se ha corrompido en tránsito.
+
+- Encabezado = Lleva instrucciones esenciales:
+  - IP de origen (de dónde procede)
+  - IP de destino (a dónde debe ir)
+  - Información de Protocolo (¿Es TCP? ¿UDP? ¿ICMP?)
+  - Número de paquete (Cómo encaja en el mensaje completo)
+- Carga útil = Los datos reales, ya sea un fragmento de un correo electrónico, un trozo de un vídeo o parte de una página web.
+- Remolque (opcional) = A veces, se añade una suma de comprobación o datos de comprobación de errores para verificar que el paquete no se ha corrompido en tránsito.
 
 ### ¿Cómo se establece una conexión entre ordenadores?
 Normalmente, una conexión se establece utilizando lo que se conoce como un handshake de tres direcciones, que tiene el siguiente aspecto:
