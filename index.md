@@ -53,7 +53,9 @@ Usually a connection is established using what is known as a three way handshake
 1.    SYN → The user's device knocks on the server’s door, sending a SYN (synchronize) packet to request a connection.
 2.    SYN-ACK → The server answers the knock, replying with SYN-ACK (synchronize-acknowledge), signaling it is ready.
 3.    ACK → The user's device confirms by sending an ACK (acknowledge) packet, completing the handshake, and allowing data to flow.
+
 If a port is closed, the handshake would instead look like this:
+
 1.    SYN → The client knocks on the server’s door, sending a SYN (synchronize) packet to request a connection.
 2.    RST-ACK → Instead of welcoming the request, the server slams the door shut, responding with RST-ACK (reset-acknowledge), forcefully rejecting the connection. After this, no further communication occurs.
 
