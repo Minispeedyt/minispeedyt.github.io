@@ -53,8 +53,9 @@ Normalmente, una conexión se establece utilizando lo que se conoce como un hand
 1.    SYN → El dispositivo del usuario llama a la puerta del servidor, enviando un paquete SYN (sincronizar) para solicitar una conexión.
 2.    SYN-ACK → El servidor responde a la llamada con SYN-ACK (sincronización-aceptación), indicando que está preparado.
 3.    ACK → El dispositivo del usuario confirma enviando un paquete ACK (acknowledge/aceptación), completando el handshake, y permitiendo el flujo de datos.
-Si un puerto está cerrado, el handshake se vería de la siguiente manera:
+
 Si un puerto está cerrado, el handshake se vería así:
+
 1.    SYN → El cliente llama a la puerta del servidor, enviando un paquete SYN (sincronizar) para solicitar una conexión.
 2.    RST-ACK → En lugar de dar la bienvenida a la solicitud, el servidor cierra la puerta de golpe, respondiendo con RST-ACK (reset-acknowledge), rechazando forzosamente la conexión. Después de esto, no se produce ninguna otra comunicación.
 
