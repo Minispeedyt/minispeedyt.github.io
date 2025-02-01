@@ -29,12 +29,14 @@ A port scanner is a tool used to find openings in a system's defenses. Let's ima
 A port scanner helps:
 *    Ethical hackers and cybersecurity professionals to find weak points before attackers do.
 *    System administrators to ensure only necessary ports are open, reducing security risks.
+
 ## How does it work?
 It sends special network packets to different ports on a target machine.
 It listens for responses, classifying ports as:
 1.    Open → The service responds, meaning the port is in use.
 2.    Closed → The target rejects the request, indicating the port isn’t active.
 3.    Filtered → No response at all—possibly blocked by a firewall.
+
 ### What is a packet?
 A packet is the smallest unit of data that travels across a network. It is a tiny fragment of a message, carrying information from one computer to another.
 Each packet consists of three parts:
@@ -45,6 +47,7 @@ Each packet consists of three parts:
     *    Packet Number (How it fits into the full message)
 2.    Payload – The actual data, whether it be a piece of an email, a chunk of a video, or part of a webpage.
 3.    Trailer (optional) – Sometimes, a checksum or error-checking data is added to verify the packet wasn’t corrupted in transit.
+
 ### How is a connection established between computers?
 Usually a connection is established using what is known as a three way handshake, it looks like this:
 1.    SYN → The user's device knocks on the server’s door, sending a SYN (synchronize) packet to request a connection.
@@ -55,6 +58,7 @@ If a port is closed, the handshake would instead look like this:
 2.    RST-ACK → Instead of welcoming the request, the server slams the door shut, responding with RST-ACK (reset-acknowledge), forcefully rejecting the connection. After this, no further communication occurs.
 
 Using this information, we can know whether the ports of a server or a device are open or closed.
+
 ## Sending packets
 First, we import scapy and we use `sr(IP(dst="172.18.0.2")/TCP(flags="S", dport=(1,100)), timeout=1 )` to send the packets, where `IP(dst="172.18.0.2")` tells scapy which IP to send the packets to, `TCP(flags="S"` specifies that we want to send SYN packets (those are the packets used in the first step of a TCP handshake), `dport=(1,100)` means that we want to scan all the ports between 1 and 100 and lastly `timeout=1` tells scapy how much time to wait for a response. We store the answered packets in 'res' (sent and received pairs) and the packets that received no response in 'unans'.
 ## Finding open/closed ports
