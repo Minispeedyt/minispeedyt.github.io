@@ -10,6 +10,7 @@ WIP :)
 [Link to the github repo.](https://github.com/Minispeedyt/simplescanner/tree/main)
 
 1/31/2025
+
 I wanted to create a simple port scanner using python, for this I decided that I was going to use scapy. The first version/prototype works well but you have to modify the code if you want to change the ports or the IP to scan. Here's the first version of the scanner:
 ```
 from scapy.all import *
@@ -78,3 +79,87 @@ We create a for loop where we look at each sent and received packet (`for s,r in
 If you do the same with 0x14, you'll see that you'll get RST-ACK. As mentioned before, SYN-ACK would mean that the port is open and RST-ACK would mean that it's closed.
 For every sent packet we're going to use `s[TCP].dport` in a print statement so that we can tell the user the number of each open and closed port.
 That's it for today, tomorrow I'll make it so that it's easier to change the ports and IP to scan and I'll add other QoL changes.
+
+1/2/2025
+
+For the second day of this project, I added a lot of changes so that it's easier to use, let's take a look.
+
+## Ctrl+C to leave
+This is one of the changes that I like the most, the ability to stop the scanner using ctrl+c. Usually, when you press ctrl+c, it might take a while for the scanner to stop and it'd display a "Keyboard interrupt" message, so I added some lines of code that capture that ctrl+c input and instantly stop the scanner, it also displays a "Stopping the scanner..." message because I think that's better than "Keyboard interrupt", here's the code snippet:
+
+```
+import signal
+import sys
+def signal_handler(sig, frame):
+    print('Stopping the scanner...')
+    sys.exit(0)
+signal.signal(signal.SIGINT, signal_handler)
+```
+
+## User input
+Instead of having to edit the code to change the target IP and things like that, I added a function to choose the scan type and a prompt to set the target IP, it also displays some examples of valid input. After the user picks a target IP, if it's a list of IPs it sanitizes the input so that it actually becomes a list without blank spaces and if it's other kinds of input like a single IP then it just continues working normally. When you choose the scan type if you choose a number that's not in the list of options or if you write things like 'Option 1' or 'One' instead of '1' then it tells you to just write the number of the option that you want to use.
+
+```
+print("Please write the target IP to scan, this can be a single IP, an IP range, a list of IPs or even a hostname.")
+print("Examples: \nSingle IP = 192.168.0.1      IP list: 192.168.0.1, 172.18.0.1, 10.0.0.8\nIP range: 192.168.0.1/24     Hostname: example.com\n")
+targetraw = input("> ")
+print()
+if ',' in targetraw:
+    target = targetraw.split(',')
+    target = [i.strip(' ') for i in target]
+else:
+    target = targetraw
+
+def changescan():
+    print("What kind of scan do you want to perform?\n1. ICMP Ping  2. TCP SYN\n")
+    scantype = input("> ")
+    match scantype:
+        case "1":
+            ping(target)
+        case "2":
+            scan(target)
+        case _:
+            print("\nPlease write only the number")
+            changescan()
+```
+
+## ICMP Ping
+I added the option to check whether a host is up or not by performing an ICMP ping.
+
+```
+def ping(target):
+    #Check if the target machine is online using an ICMP ping.
+    res, unans = sr(IP(dst=target)/ICMP(), timeout=3, verbose=0)
+    live_ips = {received.src for sent, received in res}
+    print("\nScan Results:")
+    for ip in live_ips:
+            print(f"{ip} is up")
+```
+
+## Minor fixes
+In this for loop that I used in the previous version of the scanner, the last else statement didn't have to be there, it had to be outside of the for loop because we wouldn't be able to see filtered ports if we tried to find packets that weren't SYN-ACK or RST-ACK, we actually wanted to check the packets that didn't receive any response at all. This is what it looked like before:
+
+```
+for s,r in res:
+    if r[TCP].flags == 0x12:
+        print("Port %d is open" % s[TCP].dport)
+    elif r[TCP].flags == 0x14:
+        print("Port %d is closed" % s[TCP].dport)
+    else:
+        print("Port %d is closed or filtered.")
+```
+
+This is what it looks like now:
+
+```
+for s,r in res:
+    if r[TCP].flags == 0x12:
+        print(f"Port {s[TCP].dport} in {s[IP].dst} is open")
+    elif r[TCP].flags == 0x14:
+        print(f"Port {s[TCP].dport} in {s[IP].dst} is closed")
+for s in unans:
+    print(f"Port {s[TCP].dport} in {s[IP].dst} is closed or filtered.")
+```
+
+As you can see, I added another for loop, this one can actually print which ports are filtered, it was a very easy fix.
+You might've already noticed that I changed another thing, now whenever we see which ports are open/closed/filtered, we can also take a look at the IP that has those ports in that state! This is useful when scanning multiple IPs.
