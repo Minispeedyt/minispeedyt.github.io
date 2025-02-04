@@ -3,6 +3,9 @@ layout: default
 ---
 # Indice
 WIP :)
+
+* * *
+
 # Escáner de puertos sencillo
 [Link al repositorio de github.](https://github.com/Minispeedyt/simplescanner/tree/main)
 
@@ -168,3 +171,17 @@ for s in unans:
 
 Como pueden ver, agregué otro bucle for, este sí puede imprimir qué puertos están filtrados, fue un arreglo muy fácil.
 Puede que ya te hayas dado cuenta de que he cambiado otra cosa, ahora siempre que veamos qué puertos están abiertos/cerrados/filtrados, ¡también podemos echar un vistazo a la IP que tiene esos puertos en ese estado! Esto es útil cuando escaneamos múltiples IPs.
+
+* * *
+
+2/2/2025
+
+El código se está haciendo un poco largo para mostrarlo aquí, así que siéntete libre de visitar el repositorio de github y verlo por ti mismo, seguiré proporcionando un resumen de los cambios añadidos al escáner y lo que hacen o cómo funcionan.
+
+## Cambios estéticos
+
+La mayoría de los cambios que hice hoy son sólo estéticos pero fueron bastante divertidos de implementar. Primero usé este [sitio web](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) para generar el arte ascii para el escáner. También lo hice para que sea más fácil navegar a través de las opciones, cuando abres el escáner verás la IP objetivo actual y los puertos, puedes cambiar la IP objetivo actual y los puertos usando las opciones que el escáner provee, también puedes iniciar el escaneo o salir. Ahora cuando lo abrimos nos muestra este mensaje:
+
+![intromsg](./images/scanner_intro.png)
+
+Eso es más o menos todo lo que he hecho hoy, no es mucho pero hace que el escáner sea más fácil de usar y se sienta más interactivo.
