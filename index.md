@@ -6,6 +6,9 @@ layout: default
 [Click here to change to spanish!](./es.html)
 # Index
 WIP :)
+
+* * *
+
 # Simple port scanner
 [Link to the github repo.](https://github.com/Minispeedyt/simplescanner/tree/main)
 
@@ -79,6 +82,8 @@ We create a for loop where we look at each sent and received packet (`for s,r in
 If you do the same with 0x14, you'll see that you'll get RST-ACK. As mentioned before, SYN-ACK would mean that the port is open and RST-ACK would mean that it's closed.
 For every sent packet we're going to use `s[TCP].dport` in a print statement so that we can tell the user the number of each open and closed port.
 That's it for today, tomorrow I'll make it so that it's easier to change the ports and IP to scan and I'll add other QoL changes.
+
+* * *
 
 1/2/2025
 
@@ -176,4 +181,4 @@ Most of the changes that I made today are only aesthetic but they were pretty fu
 
 ![intromsg](./images/scanner_intro.png)
 
-That's pretty much everything that I did today, it isn't much but is makes the scanner easier to use and it feels more interactive.
+That's pretty much everything that I did today, it isn't much but it makes the scanner easier to use and it feels more interactive.
