@@ -174,6 +174,6 @@ The code is getting kinda long to display it here, so feel free to visit the git
 
 Most of the changes that I made today are only aesthetic but they were pretty fun to implement. First I used [this website](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) to generate some ascii art for the scanner. I also made it so that it's easier to navigate through the options, when you open the scanner you'll see the current target IP and ports, you can change the current target IP and ports by using the options that the scanner provides, you can also start the scan or exit. Now when we open it, it displays this message:
 
-[intromsg](./images/scanner_intro.png)
+![intromsg](./images/scanner_intro.png)
 
 That's pretty much everything that I did today, it isn't much but is makes the scanner easier to use and it feels more interactive.
