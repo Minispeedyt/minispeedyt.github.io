@@ -163,3 +163,24 @@ for s in unans:
 
 As you can see, I added another for loop, this one can actually print which ports are filtered, it was a very easy fix.
 You might've already noticed that I changed another thing, now whenever we see which ports are open/closed/filtered, we can also take a look at the IP that has those ports in that state! This is useful when scanning multiple IPs.
+
+* * *
+
+2/2/2025
+
+The code is getting kinda long to display it here, so feel free to visit the github repo and see it for yourself, I'll continue providing a summary of the changes added to the scanner and what they do or how they work.
+
+Most of the changes that I made today are only aesthetic but they were pretty fun to implement. First I used [this website](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) to generate some ascii art for the scanner, now when we open it, it displays this message:
+
+.▄▄ · ▪  • ▌ ▄ ·.  ▄▄▄·▄▄▌  ▄▄▄ .    .▄▄ ·  ▄▄·  ▄▄▄·  ▐ ▄  ▐ ▄ ▄▄▄ .▄▄▄  
+▐█ ▀. ██ ·██ ▐███▪▐█ ▄███•  ▀▄.▀·    ▐█ ▀. ▐█ ▌▪▐█ ▀█ •█▌▐█•█▌▐█▀▄.▀·▀▄ █·
+▄▀▀▀█▄▐█·▐█ ▌▐▌▐█· ██▀·██▪  ▐▀▀▪▄    ▄▀▀▀█▄██ ▄▄▄█▀▀█ ▐█▐▐▌▐█▐▐▌▐▀▀▪▄▐▀▀▄ 
+▐█▄▪▐█▐█▌██ ██▌▐█▌▐█▪·•▐█▌▐▌▐█▄▄▌    ▐█▄▪▐█▐███▌▐█ ▪▐▌██▐█▌██▐█▌▐█▄▄▌▐█•█▌
+ ▀▀▀▀ ▀▀▀▀▀  █▪▀▀▀.▀   .▀▀▀  ▀▀▀      ▀▀▀▀ ·▀▀▀  ▀  ▀ ▀▀ █▪▀▀ █▪ ▀▀▀ .▀  ▀
+
+I also made it so that it's easier to navigate through the options, when you open the scanner you'll see the current target IP and ports, you can change the current target IP and ports by using the options that the scanner provides, you can also start the scan or exit. These are the options provided: 
+
+Current values: Target:target   Ports to scan:ports
+To change these settings use the following options: 1. Change target IP   2. Change ports to scan   3. Start scan   4. Exit
+
+That's pretty much everything that I did today, it isn't much but is makes the scanner easier to use and it feels more interactive.
