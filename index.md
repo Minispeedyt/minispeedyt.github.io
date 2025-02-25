@@ -5,6 +5,9 @@ layout: default
 
 [Click here to change to spanish!](./es.html)
 # Index
+
+*    [Simple port scanner](#Simple%20port%20scanner)
+
 WIP :)
 
 * * *
@@ -12,7 +15,19 @@ WIP :)
 # Simple port scanner
 [Link to the github repo.](https://github.com/Minispeedyt/simplescanner/tree/main)
 
-1/31/2025
+* * *
+
+# NOTE
+
+Keep in mind that this _**only works in linux**_ if you want to use it on windows then read the documentation of scappy to try and make it work, but by default it will only work on linux.
+
+## Usage
+
+Download the file or copy and paste the text in a file and use `sudo scanner.py`, if it doesn't let you use it then use `sudo chmod +x scanner.py` and then try to execute the first command again. 
+
+* * *
+
+# 1/31/2025
 
 I wanted to create a simple port scanner using python, for this I decided that I was going to use scapy. The first version/prototype works well but you have to modify the code if you want to change the ports or the IP to scan. Here's the first version of the scanner:
 ```
@@ -85,7 +100,7 @@ That's it for today, tomorrow I'll make it so that it's easier to change the por
 
 * * *
 
-1/2/2025
+# 1/2/2025
 
 For the second day of this project, I added a lot of changes so that it's easier to use, let's take a look.
 
@@ -171,7 +186,7 @@ You might've already noticed that I changed another thing, now whenever we see w
 
 * * *
 
-2/2/2025
+# 2/2/2025
 
 The code is getting kinda long to display it here, so feel free to visit the github repo and see it for yourself, I'll continue providing a summary of the changes added to the scanner and what they do or how they work.
 
@@ -182,3 +197,31 @@ Most of the changes that I made today are only aesthetic but they were pretty fu
 ![intromsg](./images/scanner_intro.png)
 
 That's pretty much everything that I did today, it isn't much but it makes the scanner easier to use and it feels more interactive.
+
+* * *
+
+# 2/24/2025
+
+# Big news!
+
+Sorry for taking so long to update this blog, I was extremely busy getting some documents that I needed for the university... But I've got some good news, I got admited into the University of London! I'll try to get the BSc in Computer Science. I don't really remember the last change that I made to the scanner, I did update it 3 weeks ago but I don't really remember what I did, so I'll read the code again and see what changed so that I can at least mention what I added last time.
+
+## Expanded scanning capabilities
+
+The original version supported ICMP Ping (to check if a host is up) and TCP SYN scan (to identify open ports).
+
+The new version adds:
+TCP ACK Scan: Helps determine if a port is filtered (firewalled) or unfiltered.
+XMAS Scan: Useful for detecting closed ports and identifying unfiltered ones.
+
+Each of these scan types operates using different TCP flag combinations:
+TCP SYN: Uses flags="S" to initiate a connection and find open ports.
+TCP ACK: Uses flags="A" to determine firewall rules.
+XMAS Scan: Uses flags="FPU" (FIN, PUSH, URG), which may elicit different responses from firewalls and IDS.
+
+Why This Matters:
+More scan types allow users to gather deeper insights into the target network.
+Different scans can bypass firewalls and reveal additional information.
+The program becomes more versatile for penetration testing purposes.
+
+Even though it's not that big of an update, that's going to be the last update for the scanner. I'll start a new and better project as soon as I have time to do so.
